@@ -9,6 +9,7 @@
 **/
 
 /* Elementos da página */
+/*
 // Elementos do Dependente
 var domNomeDependente       = $("#nomeDependenteInput");
 var domCPFDependente        = $("#cpfDependenteInput");
@@ -23,6 +24,25 @@ var domCPFResponsavel       = $("#cpfResponsavelInput");
 var domTelefoneResponsavel  = $("#telefoneResponsavelInput");
 var domCelularResponsavel   = $("#celularResponsavelInput");
 var domEnderecoResponsavel  = $("#enderecoResponsavelInput");
+*/
+
+/*
+OK - Fabricante *           nomeFabricanteBicicletaInput
+OK - Modelo *               modeloBicicletaInput
+OK - Cor *                  corBicicletaInput
+OK - Marcha (sim ou não)    possuiMarcha
+OK - Marca do Cambio        marcaCambioInput
+OK - Proprietário *         nomeProprietarioInput
+OK - Celular *              celularProprietarioInput
+OK - e-mail                 emailProprietarioInput
+*/
+
+// Elementos Bicicleta
+var domNomeFabricanteBicicleta  = $("#nomeFabricanteBicicletaInput");
+var domModeloBicicleta          = $("#modeloBicicletaInput");
+var domCorBicicleta             = $("#corBicicletaInput");
+var domNomeProprietario         = $("#nomeProprietarioInput");
+var domCelularProprietario      = $("#celularProprietarioInput")
 
 // Botao Resultado
 var botaoResultao           = $("#botaoValidacao");
@@ -128,51 +148,35 @@ function validateForm(obj){
     };
 }
 
+/*
+domNomeFabricanteBicicleta
+domModeloBicicleta
+domCorBicicleta
+domNomeProprietario
+domCelularProprietario
+*/
+
 // Formulario de Validação
 var formularioValidacao = [
     {
-        variable:   domNomeDependente,
+        variable:   domNomeFabricanteBicicleta,
         validation: validarNaoVazio
     },
     {
-        variable:   domCPFDependente,
-        validation: validarCPF
+        variable:   domModeloBicicleta,
+        validation: validarNaoVazio
     },
     {
-        variable:   domNascimentoDependente,
-        validation: validarData
+        variable:   domCorBicicleta,
+        validation: validarNaoVazio
     },
     {
-        variable:   domTelefoneDependente,
-        validation: validarTelefone
+        variable:   domNomeProprietario,
+        validation: validarNaoVazio
     },
     {
-        variable:   domCelularDependente,
+        variable:   domCelularProprietario,
         validation: validarCelular
-    },
-    {
-        variable:   domEnderecoDependente,
-        validation: validarNaoVazio
-    },
-    {
-        variable:   domNomeResponsavel,
-        validation: validarNaoVazio
-    },
-    {
-        variable:   domCPFResponsavel,
-        validation: validarCPF
-    },
-    {
-        variable:   domTelefoneResponsavel,
-        validation: validarTelefone
-    },
-    {
-        variable:   domCelularResponsavel,
-        validation: validarCelular
-    },
-    {
-        variable:   domEnderecoResponsavel,
-        validation: validarNaoVazio
     }
 ];
 
@@ -192,7 +196,7 @@ function validarForm(){
         // Muda o estilo e a mensagem do botão
         botaoResultao.removeClass("btn-danger").addClass("btn-success");
         //botaoResultao[0].disabled = false;
-        botaoResultao[0].innerHTML = "- Validado! - ";
+        botaoResultao[0].innerHTML = "- Salvar! - ";
 
         // Retorna o sucesso
         return true;
@@ -215,13 +219,13 @@ function validarForm(){
 // Aplica Mascaras e valida o formulário
 $(document).ready(function(){
     // Mascaras
-    domTelefoneDependente.mask(mascaraTelefone);
-    domTelefoneResponsavel.mask(mascaraTelefone);
-    domCelularDependente.mask(mascaraCelular);
-    domCelularResponsavel.mask(mascaraCelular);
-    domCPFDependente.mask(mascaraCPF);
-    domCPFResponsavel.mask(mascaraCPF);
-    domNascimentoDependente.mask(mascaraDataNascimento);
+    domCelularProprietario.mask(mascaraCelular);
+    //domTelefoneDependente.mask(mascaraTelefone);
+    //domTelefoneResponsavel.mask(mascaraTelefone);
+    //domCelularResponsavel.mask(mascaraCelular);
+    //domCPFDependente.mask(mascaraCPF);
+    //domCPFResponsavel.mask(mascaraCPF);
+    //domNascimentoDependente.mask(mascaraDataNascimento);
 
     // Valida Formulário
     //validarForm();
